@@ -35,14 +35,21 @@ def parse_results(result_file, e_val_thresh, ident_thresh, align_thresh):
 ## How to use this.
 
 def usage():
-	print """Basic usage:
+	print """
+\nparse_blast.py.\n
+Takes a .xml formatted blast results file as input and prints the query and hit ids
+for sequences passing the thresholds passed via the command line arguments. For sequences
+with no hits below the thresholds, the program returns "no hits below threshold" rather
+than the hit id.\n
+Basic usage:
 \tpython parse_blast.py -i <results.xml> -e 1e-20 -p 97 -a 100 > parsed_results.txt\n
 Arguments:
 \t-h, --help\t\t\tPrint this information.
 \t-i, --in <results.xml>\t\tXML format BLAST results file.
 \t-e, --evalue <number>\t\tExpect value.
 \t-p, --pct_ident <number, 0-100>\t\tPercentage identity cutoff.
-\t-a, --align_len <number>\t\t Minimum alignment length.\n"""
+\t-a, --align_len <number>\t\t Minimum alignment length.
+"""
 
 ## The main program.
 
