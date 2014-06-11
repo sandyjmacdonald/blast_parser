@@ -73,7 +73,7 @@ def main():
 			result_file = arg
 		elif opt in ('-h', '--help'):
 			usage()
-			sys.exit(2)
+			sys.exit(0)
 		else:
 			usage()
 			sys.exit(2)
@@ -81,8 +81,7 @@ def main():
 	try:  ## Tries to parse the results file.
 		parse_results(result_file, e_val_thresh, ident_thresh, align_thresh)
 	except:  ## Otherwise, shows usage.
-		usage()
-		sys.exit(2)
+		sys.exit(1)
 
 if __name__ == "__main__":
     main()
