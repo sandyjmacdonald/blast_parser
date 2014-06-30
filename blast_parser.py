@@ -27,6 +27,12 @@ def parse_results(result_file, e_val_thresh, ident_thresh, align_thresh):
 				if pct_ident > ident_thresh:  ## Checks whether above percentage identity cutoff.
 					if align_len > align_thresh:
 						print query_id + '\t' + top_hit
+					else:
+						print query_id, '\tno hits below threshold'
+				else:
+					print query_id, '\tno hits below threshold'
+			else:
+				print query_id, '\tno hits below threshold'
 		else:
 			print query_id, '\tno hits below threshold'
 
