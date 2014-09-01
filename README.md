@@ -12,7 +12,11 @@ Requires [Biopython](http://biopython.org) for parsing of BLAST .xml files.
     python blast_parser.py -i <results.xml> -e 1e-20 -p 97 -a 100 > parsed_results.txt
 
 > ##### Arguments
+
 > `-i` The BLAST results file (in .xml format) that you want to parse.
+
 > `-e` e value threshold. Can be a float or integer value.
+
 > `-p` Percentage identity cutoff. Can be a float or integer value between 0 and 100.
+
 > `-a` Minimum alignment length cutoff. Can be a float or integer value.
