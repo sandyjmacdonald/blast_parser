@@ -20,3 +20,5 @@ Requires [Biopython](http://biopython.org) for parsing of BLAST .xml files.
 > `-p` Percentage identity cutoff. Can be a float or integer value between 0 and 100.
 
 > `-a` Minimum alignment length cutoff. Can be a float or integer value.
+
+> `-h` Displays help.
