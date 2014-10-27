@@ -9,7 +9,9 @@ Requires [Biopython](http://biopython.org) for parsing of BLAST .xml files.
 
 ### Usage
 
-    python blast_parser.py -i <results.xml> -e 1e-20 -p 97 -a 100 > parsed_results.txt
+```bash
+python blast_parser.py -i <results.xml> -e 1e-20 -p 97 -a 100 > parsed_results.txt
+```
 
 > ##### Arguments
 
