@@ -28,7 +28,7 @@ def parse_results(result_file, e_val_thresh, ident_thresh, align_thresh):
 				top_hit = record.alignments[0].hit_def
 				if pct_ident > ident_thresh:  ## Checks whether above percentage identity cutoff.
 					if align_len > align_thresh:
-						print '%s\t%s\t%f\t%i\t%i\t%f' % (query_id, top_hit, pct_ident, query_len, align_len, e_val)
+						print '%s\t%s\t%f\t%i\t%i\t%s' % (query_id, top_hit, pct_ident, query_len, align_len, str(e_val))
 					else:
 						print '%s\t%s\t%s\t%s\t%s\t%s' % (query_id, '', '', '', '', '')
 				else:
