@@ -14,11 +14,13 @@ from Bio.Blast import NCBIXML
 def parse_results(result_file, e_val_thresh, ident_thresh, align_thresh):
 	result_handle = open(result_file, 'r')  ## The XML file to parse.
 	blast_records = NCBIXML.parse(result_handle)
+	print 'query_id\thit_id\tpercentage_identity\tquery_length\talignment_length\te_value'
 
 	for record in blast_records:  ## Loop through each query.
 		query_id = record.query
 		if len(record.alignments) > 0:  ## Check whether there are hits.
-			if record.alignments[0].hsps[0].expect < e_val_thresh:  ## Is hit below E-value?
+			e_val = record.alignments[0].hsps[0].expect
+			if e_val < e_val_thresh:  ## Is hit below E-value?
 				tot_ident = sum([hsp.identities for hsp in record.alignments[0].hsps])  ## Sum of all identities for all hsps.
 				query_len = record.query_length  ## Length of query
 				align_len = sum([hsp.align_length for hsp in record.alignments[0].hsps])  ## Length of query alignment to hit.
@@ -26,15 +28,15 @@ def parse_results(result_file, e_val_thresh, ident_thresh, align_thresh):
 				top_hit = record.alignments[0].hit_def
 				if pct_ident > ident_thresh:  ## Checks whether above percentage identity cutoff.
 					if align_len > align_thresh:
-						print query_id + '\t' + top_hit
+						print '%s\t%s\t%f\t%i\t%i\t%f' % (query_id, top_hit, pct_ident, query_len, align_len, e_val)
 					else:
-						print query_id, '\tno hits below threshold'
+						print '%s\t%s\t%f\t%i\t%i\t%f' % (query_id, '', '', '', '', '')
 				else:
-					print query_id, '\tno hits below threshold'
+					print '%s\t%s\t%f\t%i\t%i\t%f' % (query_id, '', '', '', '', '')
 			else:
-				print query_id, '\tno hits below threshold'
+				print '%s\t%s\t%f\t%i\t%i\t%f' % (query_id, '', '', '', '', '')
 		else:
-			print query_id, '\tno hits below threshold'
+			print '%s\t%s\t%f\t%i\t%i\t%f' % (query_id, '', '', '', '', '')
 
 	result_handle.close()
 

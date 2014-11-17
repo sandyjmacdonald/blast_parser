@@ -1,7 +1,7 @@
 blast_parser.py
 ============
 
-Takes a .xml formatted BLAST results file as input and prints the query and hit IDs for sequences passing the thresholds passed via the command line arguments. For sequences with no hits below the thresholds, the program returns "no hits below threshold" rather than the hit ID.
+Takes a .xml formatted BLAST results file as input and prints the query ID, hit ID, percentage identity, query length, alignment length and e value for sequences passing the thresholds passed via the command line arguments.
 
 ### Dependencies
 
