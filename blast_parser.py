@@ -30,13 +30,13 @@ def parse_results(result_file, e_val_thresh, ident_thresh, align_thresh):
 					if align_len > align_thresh:
 						print '%s\t%s\t%f\t%i\t%i\t%f' % (query_id, top_hit, pct_ident, query_len, align_len, e_val)
 					else:
-						print '%s\t%s\t%f\t%i\t%i\t%f' % (query_id, '', '', '', '', '')
+						print '%s\t%s\t%s\t%s\t%s\t%s' % (query_id, '', '', '', '', '')
 				else:
-					print '%s\t%s\t%f\t%i\t%i\t%f' % (query_id, '', '', '', '', '')
+					print '%s\t%s\t%s\t%s\t%s\t%s' % (query_id, '', '', '', '', '')
 			else:
-				print '%s\t%s\t%f\t%i\t%i\t%f' % (query_id, '', '', '', '', '')
+				print '%s\t%s\t%s\t%s\t%s\t%s' % (query_id, '', '', '', '', '')
 		else:
-			print '%s\t%s\t%f\t%i\t%i\t%f' % (query_id, '', '', '', '', '')
+			print '%s\t%s\t%s\t%s\t%s\t%s' % (query_id, '', '', '', '', '')
 
 	result_handle.close()
 
