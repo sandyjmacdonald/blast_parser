@@ -24,7 +24,7 @@ def parse_results(result_file, e_val_thresh, ident_thresh, align_thresh):
 				tot_ident = sum([hsp.identities for hsp in record.alignments[0].hsps])  ## Sum of all identities for all hsps.
 				query_len = record.query_length  ## Length of query
 				align_len = sum([hsp.align_length for hsp in record.alignments[0].hsps])  ## Length of query alignment to hit.
-				pct_ident = tot_ident/float(query_len)*100  ## Calculates percentage identity.
+				pct_ident = tot_ident/float(align_len)*100  ## Calculates percentage identity.
 				top_hit = record.alignments[0].hit_def
 				if pct_ident > ident_thresh:  ## Checks whether above percentage identity cutoff.
 					if align_len > align_thresh:
